@@ -19,10 +19,10 @@ import java.util.Optional;
 public class BoardGameController {
     private final BoardGameService boardGameService;
 
-    @GetMapping("/boardgame")
-    public ResponseEntity<List<BoardGame>> findAll(){
-        return ResponseEntity.ok(boardGameService.findAll());
-    }
+//    @GetMapping("/boardgame")
+//    public ResponseEntity<List<BoardGame>> findAll(){
+//        return ResponseEntity.ok(boardGameService.findAll());
+//    }
 
     @PutMapping("/boardgame/{id}")
     public ResponseEntity<BoardGame> update(@PathVariable Long id, @Valid @RequestBody BoardGame boardGame) throws ResourceNotFoundException {

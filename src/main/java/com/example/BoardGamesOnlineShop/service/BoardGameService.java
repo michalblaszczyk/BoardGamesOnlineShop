@@ -17,7 +17,7 @@ public class BoardGameService {
         this.boardGameRepository = boardGameRepository;
     }
 
-    public List<BoardGame> findAll(){
+    public List<BoardGame> getAllBoardGames(){
         return boardGameRepository.findAll();
     }
 
