@@ -36,6 +36,7 @@ public class BoardGameService {
                 .orElseThrow(() -> new ResourceNotFoundException("City not found for this id: " + id));
         bg.setName(boardGame.getName());
         bg.setPrice(boardGame.getPrice());
+        bg.setPictureUrl(boardGame.getPictureUrl());
 
         final BoardGame boardGameUpdated = boardGameRepository.save(bg);
         return boardGameUpdated;
