@@ -21,6 +21,10 @@ public class BoardGameService {
         return boardGameRepository.findAll();
     }
 
+    public List<BoardGame> getSearchBoardGames(String givenName){
+        return boardGameRepository.findBoardGameByName(givenName);
+    }
+
     public Optional<BoardGame> findById(Long id) throws ResourceNotFoundException{
         BoardGame boardGame = boardGameRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("City not found for this id: " + id));

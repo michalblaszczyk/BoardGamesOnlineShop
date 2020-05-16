@@ -2,15 +2,12 @@ package com.example.BoardGamesOnlineShop.controller;
 
 import com.example.BoardGamesOnlineShop.model.BoardGame;
 import com.example.BoardGamesOnlineShop.service.BoardGameService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/boardgames")
 public class BoardGamesContoller {
     private BoardGameService boardGameService;
 
@@ -21,5 +18,10 @@ public class BoardGamesContoller {
     @GetMapping(value = {"", "/"})
     public List<BoardGame> getBoardGames(){
         return boardGameService.getAllBoardGames();
+    }
+
+    @RequestMapping(value = "/search/{givenName}", method = RequestMethod.GET)
+    public List<BoardGame> findBoardGameByGivenName(@PathVariable(name="givenName")String givenName){
+        return boardGameService.getSearchBoardGames(givenName);
     }
 }

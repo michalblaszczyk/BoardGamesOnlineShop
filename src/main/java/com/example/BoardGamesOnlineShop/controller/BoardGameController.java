@@ -24,24 +24,24 @@ public class BoardGameController {
 //        return ResponseEntity.ok(boardGameService.findAll());
 //    }
 
-    @PutMapping("/boardgame/{id}")
-    public ResponseEntity<BoardGame> update(@PathVariable Long id, @Valid @RequestBody BoardGame boardGame) throws ResourceNotFoundException {
-        return ResponseEntity.ok(boardGameService.update(id,boardGame));
-    }
-
-    @GetMapping("/boardgame/{id}")
-    public ResponseEntity<Optional<BoardGame>> findById(@PathVariable Long id) throws ResourceNotFoundException {
-        return ResponseEntity.ok(boardGameService.findById(id));
-    }
-
-    @PostMapping("/boardgame")
-    public ResponseEntity create(@Valid @RequestBody BoardGame boardGame){
-        return ResponseEntity.ok(boardGameService.save(boardGame));
-    }
-
-    @DeleteMapping("/boardgame/{id}")
-    public ResponseEntity<Object> delete(@PathVariable Long id) throws ResourceNotFoundException {
-        boardGameService.deleteById(id);
-        return ResponseEntity.ok().build();
-    }
+//    @PutMapping("/boardgame/{id}")
+//    public ResponseEntity<BoardGame> update(@PathVariable Long id, @Valid @RequestBody BoardGame boardGame) throws ResourceNotFoundException {
+//        return ResponseEntity.ok(boardGameService.update(id,boardGame));
+//    }
+//
+//    @GetMapping("/boardgame/{id}")
+//    public ResponseEntity<Optional<BoardGame>> findById(@PathVariable Long id) throws ResourceNotFoundException {
+//        return ResponseEntity.ok(boardGameService.findById(id));
+//    }
+//
+//    @PostMapping("/boardgame")
+//    public ResponseEntity create(@Valid @RequestBody BoardGame boardGame){
+//        return ResponseEntity.ok(boardGameService.save(boardGame));
+//    }
+//
+//    @DeleteMapping("/boardgame/{id}")
+//    public ResponseEntity<Object> delete(@PathVariable Long id) throws ResourceNotFoundException {
+//        boardGameService.deleteById(id);
+//        return ResponseEntity.ok().build();
+//    }
 }

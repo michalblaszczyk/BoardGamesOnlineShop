@@ -25,10 +25,5 @@ public class BoardGame {
     @Column(name = "pictureUrl")
     private String pictureUrl;
 
-    public BoardGame(Long id, String name, double price, String pictureUrl) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.pictureUrl = pictureUrl;
-    }
+
 }
