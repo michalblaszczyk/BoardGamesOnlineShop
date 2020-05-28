@@ -5,8 +5,6 @@ import lombok.Data;
 
 @Data
 public class OrderProductDto {
-
     private BoardGame boardGame;
     private Integer quantity;
-
 }

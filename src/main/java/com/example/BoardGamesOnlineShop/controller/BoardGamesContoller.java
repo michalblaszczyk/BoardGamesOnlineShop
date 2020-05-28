@@ -1,6 +1,7 @@
 package com.example.BoardGamesOnlineShop.controller;
 
 import com.example.BoardGamesOnlineShop.model.BoardGame;
+import com.example.BoardGamesOnlineShop.model.User;
 import com.example.BoardGamesOnlineShop.service.BoardGameService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,14 @@ public class BoardGamesContoller {
         return boardGameService.getAllBoardGames();
     }
 
-    @RequestMapping(value = "/search/{givenName}", method = RequestMethod.GET)
+    @GetMapping(value = "/search/{givenName}")
     public List<BoardGame> findBoardGameByGivenName(@PathVariable(name="givenName")String givenName){
         return boardGameService.getSearchBoardGames(givenName);
+    }
+
+    @GetMapping(produces = "application/json")
+    @RequestMapping({ "/validateLogin" })
+    public User validateLogin() {
+        return new User("User successfully authenticated");
     }
 }

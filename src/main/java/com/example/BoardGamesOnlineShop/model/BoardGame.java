@@ -25,5 +25,4 @@ public class BoardGame {
     @Column(name = "pictureUrl")
     private String pictureUrl;
 
-
 }
