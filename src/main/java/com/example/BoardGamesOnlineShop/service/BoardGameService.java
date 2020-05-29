@@ -17,6 +17,10 @@ public class BoardGameService {
         this.boardGameRepository = boardGameRepository;
     }
 
+    public BoardGame getBoardGame(Long id) throws ResourceNotFoundException {
+        return boardGameRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+    }
+
     public List<BoardGame> getAllBoardGames(){
         return boardGameRepository.findAll();
     }

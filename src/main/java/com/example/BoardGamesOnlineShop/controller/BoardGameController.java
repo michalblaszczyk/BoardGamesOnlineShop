@@ -1,17 +1,9 @@
 package com.example.BoardGamesOnlineShop.controller;
 
-import com.example.BoardGamesOnlineShop.exception.ResourceNotFoundException;
-import com.example.BoardGamesOnlineShop.model.BoardGame;
-import com.example.BoardGamesOnlineShop.repository.BoardGameRepository;
 import com.example.BoardGamesOnlineShop.service.BoardGameService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
