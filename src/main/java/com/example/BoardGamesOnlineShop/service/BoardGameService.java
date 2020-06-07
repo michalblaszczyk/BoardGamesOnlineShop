@@ -3,7 +3,6 @@ package com.example.BoardGamesOnlineShop.service;
 import com.example.BoardGamesOnlineShop.exception.ResourceNotFoundException;
 import com.example.BoardGamesOnlineShop.model.BoardGame;
 import com.example.BoardGamesOnlineShop.repository.BoardGameRepository;
-import jdk.management.resource.ResourceRequestDeniedException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,9 +49,10 @@ public class BoardGameService {
         return boardGameUpdated;
     }
 
-    public void deleteById(Long id) throws ResourceNotFoundException{
+    public BoardGame deleteById(Long id) throws ResourceNotFoundException{
         BoardGame boardGame = boardGameRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("City not found for this id: " + id));
         boardGameRepository.deleteById(id);
+        return boardGame;
     }
 }

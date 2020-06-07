@@ -10,7 +10,7 @@ import javax.persistence.Transient;
 
 @Data
 @Entity
-public class OrderProduct {
+public class ProductInOrder {
     @EmbeddedId
     @JsonIgnore
     private OrderProductPK pk;
@@ -19,7 +19,7 @@ public class OrderProduct {
     private Integer quantity;
 
 
-    public OrderProduct(Order order, BoardGame boardGame, Integer quantity){
+    public ProductInOrder(Order order, BoardGame boardGame, Integer quantity){
         pk = new OrderProductPK();
         pk.setOrder(order);
         pk.setBoardGame(boardGame);

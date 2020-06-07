@@ -1,6 +1,6 @@
 package com.example.BoardGamesOnlineShop.service;
 
-import com.example.BoardGamesOnlineShop.model.OrderProduct;
+import com.example.BoardGamesOnlineShop.model.ProductInOrder;
 import com.example.BoardGamesOnlineShop.repository.OrderProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class OrderProductService {
         this.orderProductRepository = orderProductRepository;
     }
 
-    public OrderProduct create(OrderProduct orderProduct){
-        return this.orderProductRepository.save(orderProduct);
+    public ProductInOrder create(ProductInOrder productInOrder){
+        return this.orderProductRepository.save(productInOrder);
     }
 }

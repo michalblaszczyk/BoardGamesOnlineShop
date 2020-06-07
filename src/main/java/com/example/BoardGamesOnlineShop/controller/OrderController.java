@@ -4,15 +4,13 @@ import com.example.BoardGamesOnlineShop.dto.OrderProductDto;
 import com.example.BoardGamesOnlineShop.exception.ResourceNotFoundException;
 import com.example.BoardGamesOnlineShop.form.OrderForm;
 import com.example.BoardGamesOnlineShop.model.Order;
-import com.example.BoardGamesOnlineShop.model.OrderProduct;
+import com.example.BoardGamesOnlineShop.model.ProductInOrder;
 import com.example.BoardGamesOnlineShop.model.OrderStatus;
 import com.example.BoardGamesOnlineShop.service.BoardGameService;
 import com.example.BoardGamesOnlineShop.service.OrderProductService;
 import com.example.BoardGamesOnlineShop.service.OrderService;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,13 +40,13 @@ public class OrderController {
         order.setStatus(OrderStatus.PAID.name());
         order=this.orderService.create(order);
 
-        List<OrderProduct> orderProducts = new ArrayList<>();
+        List<ProductInOrder> productInOrders = new ArrayList<>();
         for(OrderProductDto dto: formDtos){
-            orderProducts.add(orderProductService.create(new OrderProduct(order,
+            productInOrders.add(orderProductService.create(new ProductInOrder(order,
                     boardGameService.getBoardGame(dto.getBoardGame().getId()),
                     dto.getQuantity())));
         }
-        order.setOrderProducts(orderProducts);
+        order.setProductInOrders(productInOrders);
         this.orderService.update(order);
 
 
