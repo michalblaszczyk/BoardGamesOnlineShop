@@ -2,7 +2,6 @@ package com.example.BoardGamesOnlineShop.controller;
 
 import com.example.BoardGamesOnlineShop.exception.ResourceNotFoundException;
 import com.example.BoardGamesOnlineShop.model.BoardGame;
-import com.example.BoardGamesOnlineShop.model.User;
 import com.example.BoardGamesOnlineShop.service.BoardGameService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,17 +33,10 @@ public class BoardGamesContoller {
         return ResponseEntity.ok(boardGameService.save(boardGame));
     }
 
-
     @DeleteMapping(path = {"/{id}"})
     public ResponseEntity deleteProduct(@PathVariable("id") Long id) throws ResourceNotFoundException {
         BoardGame boardGame = boardGameService.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
-
-    @GetMapping(produces = "application/json")
-    @RequestMapping({ "/validateLogin" })
-    public User validateLogin() {
-        return new User("User successfully authenticated");
-    }
 }

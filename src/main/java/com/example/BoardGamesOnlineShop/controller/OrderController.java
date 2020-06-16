@@ -10,6 +10,7 @@ import com.example.BoardGamesOnlineShop.service.BoardGameService;
 import com.example.BoardGamesOnlineShop.service.OrderProductService;
 import com.example.BoardGamesOnlineShop.service.OrderService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/orders")
+@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 public class OrderController {
     BoardGameService boardGameService;
     OrderService orderService;
